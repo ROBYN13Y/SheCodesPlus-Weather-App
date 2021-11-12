@@ -1,0 +1,187 @@
+/* BODY PAGE */
+body {
+  padding: 40px 0;
+  background: rgba(128, 128, 128, 0.048);
+}
+
+/* BODY WEATHER APP */
+#weather-app {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(6, 120, 214);
+  max-width: 640px;
+  min-width: 639px;
+  padding: 15px;
+}
+
+/* FORM CITY SEARCH */
+#search-form {
+  text-align: center;
+}
+
+/* LABEL WEATHER APP */
+#main-label {
+  font-size: 24px;
+  color: rgb(26, 95, 151);
+}
+
+/* BOX CITY SEARCH */
+.city-search-box {
+  border: 1px solid rgb(35, 112, 212);
+  background-color: rgba(163, 163, 230, 0.137);
+  color: rgb(26, 95, 151);
+  outline: none;
+}
+
+.city-search-box:active {
+  border: 2px solid rgb(35, 112, 212);
+}
+
+/* PLACEHOLDER CITY SEARCH */
+input::placeholder {
+  color: rgba(128, 128, 128, 0.685);
+}
+
+#city-search-input {
+  padding: 8px;
+}
+
+/* BUTTON CITY SEARCH */
+.city-search-button {
+  background-color: rgba(163, 163, 230, 0.137);
+  color: rgb(26, 95, 151);
+  border: 1px solid rgb(35, 112, 212);
+  padding: 8px;
+}
+
+/* BUTTON CURRENT LOCATION */
+#current-location-button {
+  background-color: rgba(163, 163, 230, 0.137);
+  color: rgb(26, 95, 151);
+  border: 1px solid rgb(35, 112, 212);
+  padding: 8px;
+}
+
+/* BODY CURRENT CITY INFO */
+#current-city {
+  border: 1px solid rgba(35, 112, 212, 0.479);
+  padding: 10px;
+  max-width: 58%;
+  margin-top: 20px;
+}
+
+/* COLUMN CITY TEXT */
+#col-text {
+  max-width: 70%;
+}
+
+h2,
+h5,
+h6 {
+  color: rgba(128, 128, 128, 0.685);
+}
+
+h2 {
+  padding-bottom: 5px;
+}
+
+#month-day-year-h6 {
+  margin: 0 0 5px 0;
+}
+
+#temp-description-h6 {
+  margin: 0;
+  font-size: smaller;
+}
+
+/* COLUM CITY EMOJI */
+#col-emoji {
+  max-width: fit-content;
+  padding: 8px 40px 0 8px;
+}
+
+.degree-number {
+  font-size: 40px;
+}
+
+.units {
+  font-size: 18px;
+  position: relative;
+  top: -15px;
+  right: 5px;
+}
+
+#c,
+#f {
+  color: rgba(128, 128, 128, 0.685);
+}
+
+/* -TODAY WEATHER ICON */
+#today-weather-icon {
+  border: 1px solid rgba(128, 128, 128, 0.685);
+}
+
+/* -TODAY WEATHER TEMP TEXT */
+#city-temp-text {
+  position: relative;
+  left: 24px;
+}
+
+/* INPUT CITY INFO */
+.input-city-info {
+  color: rgb(26, 95, 151);
+}
+
+#forecast-h5 {
+  margin-top: 25px;
+  margin-bottom: 2px;
+  color: rgb(26, 95, 151);
+}
+
+/* BODY FORECAST */
+#forecast-1 {
+  padding: 10px 1px 10px 2px;
+}
+
+#forecast-7 {
+  padding: 10px 2px 10px 1px;
+}
+
+#forecast-2,
+#forecast-3,
+#forecast-4,
+#forecast-5,
+#forecast-6 {
+  padding: 10px 1px;
+}
+
+.icon {
+  border: 1px solid rgba(128, 128, 128, 0.685);
+  display: block;
+  margin: auto;
+}
+
+.card {
+  border: 1px solid beige;
+  transition: padding 0.5s;
+}
+
+.card:hover {
+  padding: 5px;
+}
+
+#date {
+  text-align: center;
+  padding: 0;
+}
+
+#temp {
+  text-align: center;
+}
+
+.date-h6 {
+  padding: 5px 2px;
+}
+
+.temp-h6 {
+  padding: 5px 2px;
+}
