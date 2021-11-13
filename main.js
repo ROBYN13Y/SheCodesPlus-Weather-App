@@ -154,6 +154,8 @@ citySearchFunc.addEventListener("submit", citySearch);
 //
 //2 YOUR LOCATION FUNCTION
 function displayConditions(response) {
+  celsiusTemp = response.data.main.temp;
+
   //. YOUR LOCATION WEATHER ICON
   document.getElementById(
     "today-weather-icon"
@@ -220,6 +222,20 @@ function displayConditions(response) {
   showForecast7Date.innerHTML = `<span class="input-city-info">${
     dateNow.getDate() + 7
   }/${dateNow.getMonth()}</span>`;
+
+  //. FUNCTION UNIT F
+  function changeF(event) {
+    event.preventDefault();
+    let tempNumber = document.querySelector("#input-degree-number");
+    let fTemp = (celsiusTemp * 9) / 5 + 32;
+    tempNumber.innerHTML = `<span class="input-city-info">${Math.round(
+      fTemp
+    )}</span>`;
+  }
+
+  //. LET STMNT FOR FUNCTION UNIT F
+  let unitF = document.querySelector("#f");
+  unitF.addEventListener("click", changeF);
 }
 
 //. API CONNECTION YOUR LOCATION
