@@ -118,6 +118,7 @@ h2 {
 /* -TODAY WEATHER ICON */
 #today-weather-icon {
   border: 1px solid rgba(128, 128, 128, 0.685);
+  margin-bottom: 0;
 }
 
 /* -TODAY WEATHER TEMP TEXT */

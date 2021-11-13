@@ -17,8 +17,9 @@ function citySearch(event) {
     document.querySelector(
       "#temp-description-h6"
     ).innerHTML = `<span class="input-city-info">${response.data.weather[0].description}</span>`;
-    // document.getElementById("today-weather-icon").src =
-    //   "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather04-512.png";
+    document.getElementById(
+      "today-weather-icon"
+    ).src = `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`;
   }
 
   //. LET STMNT FOR OUTSIDE INFO
@@ -141,6 +142,11 @@ citySearchFunc.addEventListener("submit", citySearch);
 
 //2 BUTTON YOUR LOCATION FUNCTION
 function displayConditions(response) {
+  //. YOUR LOCATION WEATHER ICON
+  document.getElementById(
+    "today-weather-icon"
+  ).src = `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`;
+
   // .DATE INFO
   let days = [
     "Sunday",
@@ -186,9 +192,11 @@ function displayConditions(response) {
   //. DATE INTO H4
   let showDateNow = document.querySelector("#current-day-time-h5");
   showDateNow.innerHTML = `<span class="input-city-info">${dateNowDay}, ${dateNowHrs}:${dateNowMins}</span>`;
+
   //. DATE INTO H6
   let showMonthNow = document.querySelector("#month-day-year-h6");
   showMonthNow.innerHTML = `<span class="input-city-info">${dateNowMonth} ${dateNowNumber}, ${dateNowYear}</span>`;
+
   // OUTSIDE TEMP INFO
   let temp = response.data.main.temp;
   document.querySelector(
@@ -202,6 +210,7 @@ function displayConditions(response) {
   ).innerHTML = `<span class="input-city-info">${response.data.weather[0].description}</span>`;
 }
 
+//. YOUR LOCATION FUNCTION
 function searchLocation(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
@@ -214,7 +223,6 @@ function searchLocation(position) {
 
 function getCurrentLocation(event) {
   event.preventDefault();
-
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
