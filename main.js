@@ -1,11 +1,53 @@
 // INPUT DATE
 const dateNow = new Date();
 
+//. INPUT DATE INFO
+let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+let dateNowDay = days[dateNow.getDay()];
+
+let dateNowYear = dateNow.getFullYear();
+
+let months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+let dateNowMonth = months[dateNow.getMonth()];
+
+let dateNowHrs = dateNow.getHours();
+if (dateNowHrs < 10) {
+  dateNowHrs = `0${dateNowHrs}`;
+}
+
+let dateNowMins = dateNow.getMinutes();
+if (dateNowMins < 10) {
+  dateNowMins = `0${dateNowMins}`;
+}
+
+let dateNowNumber = dateNow.getDate();
+
 //1 MAIN CITY SEARCH FUNCTION
 function citySearch(event) {
   event.preventDefault();
 
-  //. FUNCTION FOR OUTSIDE INFO
+  //. FUNCTION FOR CITY SEARCH BUTTON
   function displayConditions(response) {
     let temp = response.data.main.temp;
     document.querySelector(
@@ -22,64 +64,61 @@ function citySearch(event) {
     ).src = `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`;
   }
 
-  //. LET STMNT FOR OUTSIDE INFO
+  //. LET STMNT FOR CITY SEARCH BUTTON
   let apiKey = "abaa5f9b2fdbce9c30bf8c70c78486ba";
   let city = document.querySelector("#city-search-input").value;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayConditions);
 
-  // .DATE INFO
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  let dateNowDay = days[dateNow.getDay()];
-
-  let dateNowYear = dateNow.getFullYear();
-
-  let months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  let dateNowMonth = months[dateNow.getMonth()];
-
-  let dateNowHrs = dateNow.getHours();
-  if (dateNowHrs < 10) {
-    dateNowHrs = `0${dateNowHrs}`;
-  }
-
-  let dateNowMins = dateNow.getMinutes();
-  if (dateNowMins < 10) {
-    dateNowMins = `0${dateNowMins}`;
-  }
-
-  let dateNowNumber = dateNow.getDate();
-
-  //. DATE INTO H4
+  //. DATE INFO INTO H4
   let showDateNow = document.querySelector("#current-day-time-h5");
   showDateNow.innerHTML = `<span class="input-city-info">${dateNowDay}, ${dateNowHrs}:${dateNowMins}</span>`;
-  //. DATE INTO H6
+
+  //. DATE INFO INTO H6
   let showMonthNow = document.querySelector("#month-day-year-h6");
   showMonthNow.innerHTML = `<span class="input-city-info">${dateNowMonth} ${dateNowNumber}, ${dateNowYear}</span>`;
 
-  //. DATE INTO FORECAST 1
-  // let showForecast1Date = document.querySelector("#forecast-1-h6");
-  // showForecast1Date.innerHTML = `???`;
+  //. DATE INFO INTO FORECAST 1
+  let showForecast1Date = document.querySelector("#forecast-1-h6");
+  showForecast1Date.innerHTML = `<span class="input-city-info">${
+    dateNow.getDate() + 1
+  }/${dateNow.getMonth()}</span>`;
+
+  //. DATE INFO INTO FORECAST 2
+  let showForecast2Date = document.querySelector("#forecast-2-h6");
+  showForecast2Date.innerHTML = `<span class="input-city-info">${
+    dateNow.getDate() + 2
+  }/${dateNow.getMonth()}</span>`;
+
+  //. DATE INFO INTO FORECAST 3
+  let showForecast3Date = document.querySelector("#forecast-3-h6");
+  showForecast3Date.innerHTML = `<span class="input-city-info">${
+    dateNow.getDate() + 3
+  }/${dateNow.getMonth()}</span>`;
+
+  //. DATE INFO INTO FORECAST 4
+  let showForecast4Date = document.querySelector("#forecast-4-h6");
+  showForecast4Date.innerHTML = `<span class="input-city-info">${
+    dateNow.getDate() + 4
+  }/${dateNow.getMonth()}</span>`;
+
+  //. DATE INFO INTO FORECAST 5
+  let showForecast5Date = document.querySelector("#forecast-5-h6");
+  showForecast5Date.innerHTML = `<span class="input-city-info">${
+    dateNow.getDate() + 5
+  }/${dateNow.getMonth()}</span>`;
+
+  //. DATE INFO INTO FORECAST 6
+  let showForecast6Date = document.querySelector("#forecast-6-h6");
+  showForecast6Date.innerHTML = `<span class="input-city-info">${
+    dateNow.getDate() + 6
+  }/${dateNow.getMonth()}</span>`;
+
+  //. DATE INFO INTO FORECAST 7
+  let showForecast7Date = document.querySelector("#forecast-7-h6");
+  showForecast7Date.innerHTML = `<span class="input-city-info">${
+    dateNow.getDate() + 7
+  }/${dateNow.getMonth()}</span>`;
 
   //. TEMP INTO FORECAST 1 HIGH/LOW
   // let showForecast1Temp = document.querySelector("#forecast-1-hl");
@@ -136,7 +175,7 @@ function citySearch(event) {
   //   "https://th.bing.com/th/id/R.6f91bc8f92f34fe50d84f23442265d64?rik=ZRQrntvuFnotmw&riu=http%3a%2f%2fgetdrawings.com%2ffree-icon%2fmostly-sunny-weather-icon-73.png&ehk=wvtR6GA16kKzmVDywyKt58A6wCKPp%2bHpnr9o7PcM9RE%3d&risl=&pid=ImgRaw&r=0";
 }
 
-//1 LET STMNT FOR MAIN CITY SEARCH FUNCTION
+//1 LET STMNT FOR MAIN CITY SEARCH  FUNCTION
 let citySearchFunc = document.querySelector("#city-search-form");
 citySearchFunc.addEventListener("submit", citySearch);
 
@@ -147,48 +186,6 @@ function displayConditions(response) {
     "today-weather-icon"
   ).src = `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`;
 
-  // .DATE INFO
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  let dateNowDay = days[dateNow.getDay()];
-
-  let dateNowYear = dateNow.getFullYear();
-
-  let months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  let dateNowMonth = months[dateNow.getMonth()];
-
-  let dateNowHrs = dateNow.getHours();
-  if (dateNowHrs < 10) {
-    dateNowHrs = `0${dateNowHrs}`;
-  }
-
-  let dateNowMins = dateNow.getMinutes();
-  if (dateNowMins < 10) {
-    dateNowMins = `0${dateNowMins}`;
-  }
-
-  let dateNowNumber = dateNow.getDate();
-
   //. DATE INTO H4
   let showDateNow = document.querySelector("#current-day-time-h5");
   showDateNow.innerHTML = `<span class="input-city-info">${dateNowDay}, ${dateNowHrs}:${dateNowMins}</span>`;
@@ -197,7 +194,7 @@ function displayConditions(response) {
   let showMonthNow = document.querySelector("#month-day-year-h6");
   showMonthNow.innerHTML = `<span class="input-city-info">${dateNowMonth} ${dateNowNumber}, ${dateNowYear}</span>`;
 
-  // OUTSIDE TEMP INFO
+  //. CITY SEARCH INFO
   let temp = response.data.main.temp;
   document.querySelector(
     "#input-city-h2"
@@ -210,7 +207,7 @@ function displayConditions(response) {
   ).innerHTML = `<span class="input-city-info">${response.data.weather[0].description}</span>`;
 }
 
-//. YOUR LOCATION FUNCTION
+//. BUTTON YOUR LOCATION FUNCTION
 function searchLocation(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
