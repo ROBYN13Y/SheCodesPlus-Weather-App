@@ -145,6 +145,20 @@ function citySearch(event) {
   //. LET STMNT FOR FUNCTION UNIT F
   let unitF = document.querySelector("#f");
   unitF.addEventListener("click", changeF);
+
+  //. FUNCTION UNIT C
+  function changeC(event) {
+    event.preventDefault();
+    let tempNumber = document.querySelector("#input-degree-number");
+    let cTemp = celsiusTemp;
+    tempNumber.innerHTML = `<span class="input-city-info">${Math.round(
+      cTemp
+    )}</span>`;
+  }
+
+  //. LET STMNT FOR FUNCTION UNIT C
+  let unitC = document.querySelector("#c");
+  unitC.addEventListener("click", changeC);
 }
 
 //1 LET STMNT FOR CITY SEARCH  FUNCTION
@@ -236,6 +250,20 @@ function displayConditions(response) {
   //. LET STMNT FOR FUNCTION UNIT F
   let unitF = document.querySelector("#f");
   unitF.addEventListener("click", changeF);
+
+  //. FUNCTION UNIT C
+  function changeC(event) {
+    event.preventDefault();
+    let tempNumber = document.querySelector("#input-degree-number");
+    let cTemp = celsiusTemp;
+    tempNumber.innerHTML = `<span class="input-city-info">${Math.round(
+      cTemp
+    )}</span>`;
+  }
+
+  //. LET STMNT FOR FUNCTION UNIT C
+  let unitC = document.querySelector("#c");
+  unitC.addEventListener("click", changeC);
 }
 
 //. API CONNECTION YOUR LOCATION
@@ -270,17 +298,6 @@ yourLocation.addEventListener("click", getCurrentLocation);
 //     response.data.main.temp_min
 //   )}/${Math.round(response.data.main.temp_max)}`;
 // }
-
-//. FUNCTION UNIT C
-// function changeC(response) {
-//   event.preventDefault();
-//   let tempNumber = document.querySelector("#input-degree-number");
-//   tempNumber.innerHTML = `<span class="input-city-info">19</span>`;
-// }
-
-//. LET STMNT FOR FUNCTION UNIT C
-// let unitC = document.querySelector("#c");
-// unitC.addEventListener("click", changeC);
 
 //. FORECAST 1 WEATHER ICON
 // document.getElementById("fc-1-icon").src =
