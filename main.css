@@ -81,16 +81,20 @@ h6 {
 }
 
 h2 {
-  padding-bottom: 5px;
+  padding-bottom: 8px;
 }
 
 #month-day-year-h6 {
-  margin: 0 0 5px 0;
+  margin: 0;
 }
 
 #temp-description-h6 {
-  margin: 0;
-  font-size: smaller;
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+#temp-description-h6::first-letter {
+  text-transform: capitalize;
 }
 
 /* COLUM CITY EMOJI */
