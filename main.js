@@ -66,6 +66,7 @@ function citySearch(event) {
     document.getElementById(
       "today-weather-icon"
     ).src = `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`;
+    console.log(response);
   }
 
   //. API CONNECTION
