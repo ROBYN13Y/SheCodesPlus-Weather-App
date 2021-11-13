@@ -42,12 +42,16 @@ if (dateNowMins < 10) {
 }
 
 let dateNowNumber = dateNow.getDate();
-
-//1 MAIN CITY SEARCH FUNCTION
+//
+//
+//
+//
+//
+//1 CITY SEARCH FUNCTION
 function citySearch(event) {
   event.preventDefault();
 
-  //. FUNCTION FOR CITY SEARCH BUTTON
+  //. BUTTON CITY SEARCH
   function displayConditions(response) {
     let temp = response.data.main.temp;
     document.querySelector(
@@ -64,7 +68,7 @@ function citySearch(event) {
     ).src = `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`;
   }
 
-  //. LET STMNT FOR CITY SEARCH BUTTON
+  //. API CONNECTION
   let apiKey = "abaa5f9b2fdbce9c30bf8c70c78486ba";
   let city = document.querySelector("#city-search-input").value;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -175,11 +179,15 @@ function citySearch(event) {
   //   "https://th.bing.com/th/id/R.6f91bc8f92f34fe50d84f23442265d64?rik=ZRQrntvuFnotmw&riu=http%3a%2f%2fgetdrawings.com%2ffree-icon%2fmostly-sunny-weather-icon-73.png&ehk=wvtR6GA16kKzmVDywyKt58A6wCKPp%2bHpnr9o7PcM9RE%3d&risl=&pid=ImgRaw&r=0";
 }
 
-//1 LET STMNT FOR MAIN CITY SEARCH  FUNCTION
+//1 LET STMNT FOR CITY SEARCH  FUNCTION
 let citySearchFunc = document.querySelector("#city-search-form");
 citySearchFunc.addEventListener("submit", citySearch);
-
-//2 BUTTON YOUR LOCATION FUNCTION
+//
+//
+//
+//
+//
+//2 YOUR LOCATION FUNCTION
 function displayConditions(response) {
   //. YOUR LOCATION WEATHER ICON
   document.getElementById(
@@ -205,9 +213,51 @@ function displayConditions(response) {
   document.querySelector(
     "#temp-description-h6"
   ).innerHTML = `<span class="input-city-info">${response.data.weather[0].description}</span>`;
+
+  //. DATE INFO INTO FORECAST 1
+  let showForecast1Date = document.querySelector("#forecast-1-h6");
+  showForecast1Date.innerHTML = `<span class="input-city-info">${
+    dateNow.getDate() + 1
+  }/${dateNow.getMonth()}</span>`;
+
+  //. DATE INFO INTO FORECAST 2
+  let showForecast2Date = document.querySelector("#forecast-2-h6");
+  showForecast2Date.innerHTML = `<span class="input-city-info">${
+    dateNow.getDate() + 2
+  }/${dateNow.getMonth()}</span>`;
+
+  //. DATE INFO INTO FORECAST 3
+  let showForecast3Date = document.querySelector("#forecast-3-h6");
+  showForecast3Date.innerHTML = `<span class="input-city-info">${
+    dateNow.getDate() + 3
+  }/${dateNow.getMonth()}</span>`;
+
+  //. DATE INFO INTO FORECAST 4
+  let showForecast4Date = document.querySelector("#forecast-4-h6");
+  showForecast4Date.innerHTML = `<span class="input-city-info">${
+    dateNow.getDate() + 4
+  }/${dateNow.getMonth()}</span>`;
+
+  //. DATE INFO INTO FORECAST 5
+  let showForecast5Date = document.querySelector("#forecast-5-h6");
+  showForecast5Date.innerHTML = `<span class="input-city-info">${
+    dateNow.getDate() + 5
+  }/${dateNow.getMonth()}</span>`;
+
+  //. DATE INFO INTO FORECAST 6
+  let showForecast6Date = document.querySelector("#forecast-6-h6");
+  showForecast6Date.innerHTML = `<span class="input-city-info">${
+    dateNow.getDate() + 6
+  }/${dateNow.getMonth()}</span>`;
+
+  //. DATE INFO INTO FORECAST 7
+  let showForecast7Date = document.querySelector("#forecast-7-h6");
+  showForecast7Date.innerHTML = `<span class="input-city-info">${
+    dateNow.getDate() + 7
+  }/${dateNow.getMonth()}</span>`;
 }
 
-//. BUTTON YOUR LOCATION FUNCTION
+//. API CONNECTION YOUR LOCATION
 function searchLocation(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
@@ -223,6 +273,6 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
-//2 LET STMNT FOR BUTTON YOUR LOCATION FUNCTION
+//2 LET STMNT FOR YOUR LOCATION FUNCTION
 let yourLocation = document.querySelector("#current-location-button");
 yourLocation.addEventListener("click", getCurrentLocation);
