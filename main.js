@@ -72,6 +72,10 @@ function citySearch(event) {
       "#temp-description-h6"
     ).innerHTML = `<span class="input-city-info">${response.data.weather[0].description}</span>`;
 
+    document.querySelector(
+      "#wind-speed-h6"
+    ).innerHTML = `<span class="input-city-info">${response.data.wind.speed} km/h`;
+
     document.getElementById(
       "today-weather-icon"
     ).src = `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`;
@@ -185,15 +189,22 @@ function displayConditions(response) {
 
   //. CITY SEARCH INFO
   let temp = response.data.main.temp;
+
   document.querySelector(
     "#input-city-h2"
   ).innerHTML = `<span class="input-city-info">${response.data.name}</span>`;
+
   document.querySelector(
     "#input-degree-number"
   ).innerHTML = `<span class="input-city-info">${Math.round(temp)}</span>`;
+
   document.querySelector(
     "#temp-description-h6"
   ).innerHTML = `<span class="input-city-info">${response.data.weather[0].description}</span>`;
+
+  document.querySelector(
+    "#wind-speed-h6"
+  ).innerHTML = `<span class="input-city-info">${response.data.wind.speed} km/h`;
 
   //. DATE INFO INTO FORECAST 1
   let showForecast1Date = document.querySelector("#forecast-1-h6");
