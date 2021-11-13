@@ -1,7 +1,10 @@
-// INPUT DATE
+//GLOBAL VARIABLES
+// APIKEY
+const apiKey = "abaa5f9b2fdbce9c30bf8c70c78486ba";
+
+// DATE INFO
 const dateNow = new Date();
 
-//. INPUT DATE INFO
 let days = [
   "Sunday",
   "Monday",
@@ -42,35 +45,39 @@ if (dateNowMins < 10) {
 }
 
 let dateNowNumber = dateNow.getDate();
-//
-//
-//
+
+// TEMPERATURES
+let celsiusTemp = null;
 //
 //
 //1 CITY SEARCH FUNCTION
 function citySearch(event) {
   event.preventDefault();
 
-  //. BUTTON CITY SEARCH
+  //. BUTTON CITY SEARCH FUNCTION
   function displayConditions(response) {
-    let temp = response.data.main.temp;
+    celsiusTemp = response.data.main.temp;
+
     document.querySelector(
       "#input-city-h2"
     ).innerHTML = `<span class="input-city-info">${response.data.name}</span>`;
+
     document.querySelector(
       "#input-degree-number"
-    ).innerHTML = `<span class="input-city-info">${Math.round(temp)}</span>`;
+    ).innerHTML = `<span class="input-city-info">${Math.round(
+      celsiusTemp
+    )}</span>`;
+
     document.querySelector(
       "#temp-description-h6"
     ).innerHTML = `<span class="input-city-info">${response.data.weather[0].description}</span>`;
+
     document.getElementById(
       "today-weather-icon"
     ).src = `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`;
-    console.log(response);
   }
 
   //. API CONNECTION
-  let apiKey = "abaa5f9b2fdbce9c30bf8c70c78486ba";
   let city = document.querySelector("#city-search-input").value;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayConditions);
@@ -125,67 +132,24 @@ function citySearch(event) {
     dateNow.getDate() + 7
   }/${dateNow.getMonth()}</span>`;
 
-  //. TEMP INTO FORECAST 1 HIGH/LOW
-  // let showForecast1Temp = document.querySelector("#forecast-1-hl");
-  // showForecast1Temp.innerHTML = `22/18`;
-
   //. FUNCTION UNIT F
-  // function changeF(event) {
-  //   event.preventDefault();
-  //   let tempNumber = document.querySelector("#input-degree-number");
-  //   tempNumber.innerHTML = `<span class="input-city-info">69</span>`;
-  // }
+  function changeF(event) {
+    event.preventDefault();
+    let tempNumber = document.querySelector("#input-degree-number");
+    let fTemp = (celsiusTemp * 9) / 5 + 32;
+    tempNumber.innerHTML = `<span class="input-city-info">${Math.round(
+      fTemp
+    )}</span>`;
+  }
 
   //. LET STMNT FOR FUNCTION UNIT F
-  // let unitF = document.querySelector("#f");
-  // unitF.addEventListener("click", changeF);
-
-  //. FUNCTION UNIT C
-  // function changeC(response) {
-  //   event.preventDefault();
-  //   let tempNumber = document.querySelector("#input-degree-number");
-  //   tempNumber.innerHTML = `<span class="input-city-info">19</span>`;
-  // }
-
-  //. LET STMNT FOR FUNCTION UNIT C
-  // let unitC = document.querySelector("#c");
-  // unitC.addEventListener("click", changeC);
-
-  //. FORECAST 1 WEATHER ICON
-  // document.getElementById("fc-1-icon").src =
-  //   "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather07-512.png";
-
-  //. FORECAST 2 WEATHER ICON
-  // document.getElementById("fc-2-icon").src =
-  //   "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather07-512.png";
-
-  //. FORECAST 3 WEATHER ICON
-  // document.getElementById("fc-3-icon").src =
-  //   "https://cdn1.iconfinder.com/data/icons/weather-forecast-meteorology-color-1/128/weather-sunny-showers-512.png";
-
-  //. FORECAST 4 WEATHER ICON
-  // document.getElementById("fc-4-icon").src =
-  //   "https://th.bing.com/th/id/R.6f91bc8f92f34fe50d84f23442265d64?rik=ZRQrntvuFnotmw&riu=http%3a%2f%2fgetdrawings.com%2ffree-icon%2fmostly-sunny-weather-icon-73.png&ehk=wvtR6GA16kKzmVDywyKt58A6wCKPp%2bHpnr9o7PcM9RE%3d&risl=&pid=ImgRaw&r=0";
-
-  //. FORECAST 5 WEATHER ICON
-  // document.getElementById("fc-5-icon").src =
-  //   "https://th.bing.com/th/id/R.6f91bc8f92f34fe50d84f23442265d64?rik=ZRQrntvuFnotmw&riu=http%3a%2f%2fgetdrawings.com%2ffree-icon%2fmostly-sunny-weather-icon-73.png&ehk=wvtR6GA16kKzmVDywyKt58A6wCKPp%2bHpnr9o7PcM9RE%3d&risl=&pid=ImgRaw&r=0";
-
-  //. FORECAST 6 WEATHER ICON
-  // document.getElementById("fc-6-icon").src =
-  //   "https://cdn4.iconfinder.com/data/icons/disasters-flat-colorful/2048/6741_-_Thunderstorm-512.png";
-
-  //. FORECAST 7 WEATHER ICON
-  // document.getElementById("fc-7-icon").src =
-  //   "https://th.bing.com/th/id/R.6f91bc8f92f34fe50d84f23442265d64?rik=ZRQrntvuFnotmw&riu=http%3a%2f%2fgetdrawings.com%2ffree-icon%2fmostly-sunny-weather-icon-73.png&ehk=wvtR6GA16kKzmVDywyKt58A6wCKPp%2bHpnr9o7PcM9RE%3d&risl=&pid=ImgRaw&r=0";
+  let unitF = document.querySelector("#f");
+  unitF.addEventListener("click", changeF);
 }
 
 //1 LET STMNT FOR CITY SEARCH  FUNCTION
 let citySearchFunc = document.querySelector("#city-search-form");
 citySearchFunc.addEventListener("submit", citySearch);
-//
-//
-//
 //
 //
 //2 YOUR LOCATION FUNCTION
@@ -260,10 +224,10 @@ function displayConditions(response) {
 
 //. API CONNECTION YOUR LOCATION
 function searchLocation(position) {
+  console.log(position);
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
   let units = "metric";
-  let apiKey = "abaa5f9b2fdbce9c30bf8c70c78486ba";
   let apiEndpoint = "https://api.openweathermap.org/data/2.5/weather";
   let apiUrl = `${apiEndpoint}?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
   axios.get(apiUrl).then(displayConditions);
@@ -277,3 +241,55 @@ function getCurrentLocation(event) {
 //2 LET STMNT FOR YOUR LOCATION FUNCTION
 let yourLocation = document.querySelector("#current-location-button");
 yourLocation.addEventListener("click", getCurrentLocation);
+
+//. TEMP INFO INTO FORECAST 1 HIGH/LOW
+// let showForecast1Temp = document.querySelector("#forecast-1-hl");
+// showForecast1Temp.innerHTML = `${Math.round(
+//   response.data.main.temp_min
+// )}/${Math.round(response.data.main.temp_max)}`;
+
+//. TEMP INFO INTO FORECAST 2 HIGH/LOW
+//   let showForecast1Temp = document.querySelector("#forecast-2-hl");
+//   showForecast1Temp.innerHTML = `${Math.round(
+//     response.data.main.temp_min
+//   )}/${Math.round(response.data.main.temp_max)}`;
+// }
+
+//. FUNCTION UNIT C
+// function changeC(response) {
+//   event.preventDefault();
+//   let tempNumber = document.querySelector("#input-degree-number");
+//   tempNumber.innerHTML = `<span class="input-city-info">19</span>`;
+// }
+
+//. LET STMNT FOR FUNCTION UNIT C
+// let unitC = document.querySelector("#c");
+// unitC.addEventListener("click", changeC);
+
+//. FORECAST 1 WEATHER ICON
+// document.getElementById("fc-1-icon").src =
+//   "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather07-512.png";
+
+//. FORECAST 2 WEATHER ICON
+// document.getElementById("fc-2-icon").src =
+//   "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather07-512.png";
+
+//. FORECAST 3 WEATHER ICON
+// document.getElementById("fc-3-icon").src =
+//   "https://cdn1.iconfinder.com/data/icons/weather-forecast-meteorology-color-1/128/weather-sunny-showers-512.png";
+
+//. FORECAST 4 WEATHER ICON
+// document.getElementById("fc-4-icon").src =
+//   "https://th.bing.com/th/id/R.6f91bc8f92f34fe50d84f23442265d64?rik=ZRQrntvuFnotmw&riu=http%3a%2f%2fgetdrawings.com%2ffree-icon%2fmostly-sunny-weather-icon-73.png&ehk=wvtR6GA16kKzmVDywyKt58A6wCKPp%2bHpnr9o7PcM9RE%3d&risl=&pid=ImgRaw&r=0";
+
+//. FORECAST 5 WEATHER ICON
+// document.getElementById("fc-5-icon").src =
+//   "https://th.bing.com/th/id/R.6f91bc8f92f34fe50d84f23442265d64?rik=ZRQrntvuFnotmw&riu=http%3a%2f%2fgetdrawings.com%2ffree-icon%2fmostly-sunny-weather-icon-73.png&ehk=wvtR6GA16kKzmVDywyKt58A6wCKPp%2bHpnr9o7PcM9RE%3d&risl=&pid=ImgRaw&r=0";
+
+//. FORECAST 6 WEATHER ICON
+// document.getElementById("fc-6-icon").src =
+//   "https://cdn4.iconfinder.com/data/icons/disasters-flat-colorful/2048/6741_-_Thunderstorm-512.png";
+
+//. FORECAST 7 WEATHER ICON
+// document.getElementById("fc-7-icon").src =
+//   "https://th.bing.com/th/id/R.6f91bc8f92f34fe50d84f23442265d64?rik=ZRQrntvuFnotmw&riu=http%3a%2f%2fgetdrawings.com%2ffree-icon%2fmostly-sunny-weather-icon-73.png&ehk=wvtR6GA16kKzmVDywyKt58A6wCKPp%2bHpnr9o7PcM9RE%3d&risl=&pid=ImgRaw&r=0";
