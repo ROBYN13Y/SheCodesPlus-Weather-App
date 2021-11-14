@@ -232,44 +232,60 @@ function getCurrentLocation(event) {
 let yourLocation = document.querySelector("#current-location-button");
 yourLocation.addEventListener("click", getCurrentLocation);
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
+
+  return days[day];
+}
+
 //3 DISPLAY FORECAST
 function displayForecast(response) {
-  console.log(response.data.daily);
+  let cityForecastDays = response.data.daily;
   let forecastCard = document.querySelector("#container-forecast");
-  let forecastHTML = `<div class="row">`;
-  let days = [
-    "Next Day",
-    "Next Day",
-    "Next Day",
-    "Next Day",
-    "Next Day",
-    "Next Day",
-    "Next Day",
-  ];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  let forecastHTML = `<div class="row" id="forecast-7">`;
+
+  cityForecastDays.forEach(function (forecastDay, index) {
+    if (index < 7) {
+      forecastHTML =
+        forecastHTML +
+        `
       <div class="col-2" id="forecast-card">
         <div class="card">
           <div class="container" id="date">
             <h6 class="date-h6" id="forecast-h6">
-              <span style="font-size: 12px">${day}</span>
+              <span style="font-size: 12px" class="input-city-info">
+                ${formatDay(forecastDay.dt)}
+              </span>
             </h6>
           </div>
           <img
-            src="https://anatomised.com/wp-content/uploads/2016/05/spinner-test4.gif"
+            src="https://openweathermap.org/img/wn/${
+              forecastDay.weather[0].icon
+            }@2x.png"
             class="icon"
             id="fc-icon"
             alt="pending"
             width="60"
           />
           <div class="container" id="high-low">
-            <h6 class="temp-h6">+/-</h6>
+            <h6 class="temp-h6">
+              <span class="input-city-info">
+                ${Math.round(forecastDay.temp.max)}
+                °
+              </span>
+              /
+              <span class="input-city-info" style="opacity: 70%">
+                ${Math.round(forecastDay.temp.min)}
+                °
+              </span>
+            </h6>
           </div>
         </div>
       </div>
-    `;
+      `;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastCard.innerHTML = forecastHTML;
