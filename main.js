@@ -95,46 +95,46 @@ function citySearch(event) {
   showMonthNow.innerHTML = `<span class="input-city-info">${dateNowMonth} ${dateNowNumber}, ${dateNowYear}</span>`;
 
   //. DATE INFO INTO FORECAST 1
-  let showForecast1Date = document.querySelector("#forecast-1-h6");
-  showForecast1Date.innerHTML = `<span class="input-city-info">${
-    dateNow.getDate() + 1
-  }/${dateNow.getMonth()}</span>`;
+  // let showForecast1Date = document.querySelector("#forecast-1-h6");
+  // showForecast1Date.innerHTML = `<span class="input-city-info">${
+  //   dateNow.getDate() + 1
+  // }/${dateNow.getMonth()}</span>`;
 
   //. DATE INFO INTO FORECAST 2
-  let showForecast2Date = document.querySelector("#forecast-2-h6");
-  showForecast2Date.innerHTML = `<span class="input-city-info">${
-    dateNow.getDate() + 2
-  }/${dateNow.getMonth()}</span>`;
+  // let showForecast2Date = document.querySelector("#forecast-2-h6");
+  // showForecast2Date.innerHTML = `<span class="input-city-info">${
+  //   dateNow.getDate() + 2
+  // }/${dateNow.getMonth()}</span>`;
 
   //. DATE INFO INTO FORECAST 3
-  let showForecast3Date = document.querySelector("#forecast-3-h6");
-  showForecast3Date.innerHTML = `<span class="input-city-info">${
-    dateNow.getDate() + 3
-  }/${dateNow.getMonth()}</span>`;
+  // let showForecast3Date = document.querySelector("#forecast-3-h6");
+  // showForecast3Date.innerHTML = `<span class="input-city-info">${
+  //   dateNow.getDate() + 3
+  // }/${dateNow.getMonth()}</span>`;
 
   //. DATE INFO INTO FORECAST 4
-  let showForecast4Date = document.querySelector("#forecast-4-h6");
-  showForecast4Date.innerHTML = `<span class="input-city-info">${
-    dateNow.getDate() + 4
-  }/${dateNow.getMonth()}</span>`;
+  // let showForecast4Date = document.querySelector("#forecast-4-h6");
+  // showForecast4Date.innerHTML = `<span class="input-city-info">${
+  //   dateNow.getDate() + 4
+  // }/${dateNow.getMonth()}</span>`;
 
   //. DATE INFO INTO FORECAST 5
-  let showForecast5Date = document.querySelector("#forecast-5-h6");
-  showForecast5Date.innerHTML = `<span class="input-city-info">${
-    dateNow.getDate() + 5
-  }/${dateNow.getMonth()}</span>`;
+  // let showForecast5Date = document.querySelector("#forecast-5-h6");
+  // showForecast5Date.innerHTML = `<span class="input-city-info">${
+  //   dateNow.getDate() + 5
+  // }/${dateNow.getMonth()}</span>`;
 
   //. DATE INFO INTO FORECAST 6
-  let showForecast6Date = document.querySelector("#forecast-6-h6");
-  showForecast6Date.innerHTML = `<span class="input-city-info">${
-    dateNow.getDate() + 6
-  }/${dateNow.getMonth()}</span>`;
+  // let showForecast6Date = document.querySelector("#forecast-6-h6");
+  // showForecast6Date.innerHTML = `<span class="input-city-info">${
+  //   dateNow.getDate() + 6
+  // }/${dateNow.getMonth()}</span>`;
 
   //. DATE INFO INTO FORECAST 7
-  let showForecast7Date = document.querySelector("#forecast-7-h6");
-  showForecast7Date.innerHTML = `<span class="input-city-info">${
-    dateNow.getDate() + 7
-  }/${dateNow.getMonth()}</span>`;
+  // let showForecast7Date = document.querySelector("#forecast-7-h6");
+  // showForecast7Date.innerHTML = `<span class="input-city-info">${
+  //   dateNow.getDate() + 7
+  // }/${dateNow.getMonth()}</span>`;
 
   //. FUNCTION UNIT F
   function changeF(event) {
@@ -207,46 +207,46 @@ function displayConditions(response) {
   ).innerHTML = `<span class="input-city-info">${response.data.wind.speed} km/h`;
 
   //. DATE INFO INTO FORECAST 1
-  let showForecast1Date = document.querySelector("#forecast-1-h6");
-  showForecast1Date.innerHTML = `<span class="input-city-info">${
-    dateNow.getDate() + 1
-  }/${dateNow.getMonth()}</span>`;
+  // let showForecast1Date = document.querySelector("#forecast-1-h6");
+  // showForecast1Date.innerHTML = `<span class="input-city-info">${
+  //   dateNow.getDate() + 1
+  // }/${dateNow.getMonth()}</span>`;
 
   //. DATE INFO INTO FORECAST 2
-  let showForecast2Date = document.querySelector("#forecast-2-h6");
-  showForecast2Date.innerHTML = `<span class="input-city-info">${
-    dateNow.getDate() + 2
-  }/${dateNow.getMonth()}</span>`;
+  // let showForecast2Date = document.querySelector("#forecast-2-h6");
+  // showForecast2Date.innerHTML = `<span class="input-city-info">${
+  //   dateNow.getDate() + 2
+  // }/${dateNow.getMonth()}</span>`;
 
   //. DATE INFO INTO FORECAST 3
-  let showForecast3Date = document.querySelector("#forecast-3-h6");
-  showForecast3Date.innerHTML = `<span class="input-city-info">${
-    dateNow.getDate() + 3
-  }/${dateNow.getMonth()}</span>`;
+  // let showForecast3Date = document.querySelector("#forecast-3-h6");
+  // showForecast3Date.innerHTML = `<span class="input-city-info">${
+  //   dateNow.getDate() + 3
+  // }/${dateNow.getMonth()}</span>`;
 
   //. DATE INFO INTO FORECAST 4
-  let showForecast4Date = document.querySelector("#forecast-4-h6");
-  showForecast4Date.innerHTML = `<span class="input-city-info">${
-    dateNow.getDate() + 4
-  }/${dateNow.getMonth()}</span>`;
+  // let showForecast4Date = document.querySelector("#forecast-4-h6");
+  // showForecast4Date.innerHTML = `<span class="input-city-info">${
+  //   dateNow.getDate() + 4
+  // }/${dateNow.getMonth()}</span>`;
 
   //. DATE INFO INTO FORECAST 5
-  let showForecast5Date = document.querySelector("#forecast-5-h6");
-  showForecast5Date.innerHTML = `<span class="input-city-info">${
-    dateNow.getDate() + 5
-  }/${dateNow.getMonth()}</span>`;
+  // let showForecast5Date = document.querySelector("#forecast-5-h6");
+  // showForecast5Date.innerHTML = `<span class="input-city-info">${
+  //   dateNow.getDate() + 5
+  // }/${dateNow.getMonth()}</span>`;
 
   //. DATE INFO INTO FORECAST 6
-  let showForecast6Date = document.querySelector("#forecast-6-h6");
-  showForecast6Date.innerHTML = `<span class="input-city-info">${
-    dateNow.getDate() + 6
-  }/${dateNow.getMonth()}</span>`;
+  // let showForecast6Date = document.querySelector("#forecast-6-h6");
+  // showForecast6Date.innerHTML = `<span class="input-city-info">${
+  //   dateNow.getDate() + 6
+  // }/${dateNow.getMonth()}</span>`;
 
   //. DATE INFO INTO FORECAST 7
-  let showForecast7Date = document.querySelector("#forecast-7-h6");
-  showForecast7Date.innerHTML = `<span class="input-city-info">${
-    dateNow.getDate() + 7
-  }/${dateNow.getMonth()}</span>`;
+  // let showForecast7Date = document.querySelector("#forecast-7-h6");
+  // showForecast7Date.innerHTML = `<span class="input-city-info">${
+  //   dateNow.getDate() + 7
+  // }/${dateNow.getMonth()}</span>`;
 
   //. FUNCTION UNIT F
   function changeF(event) {
