@@ -54,8 +54,17 @@ let celsiusTemp = null;
 function citySearch(event) {
   event.preventDefault();
 
+  //FORECAST FUNCTION
+  function getForecast(coordinates) {
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayForecast);
+  }
+
   //. BUTTON CITY SEARCH FUNCTION
   function displayConditions(response) {
+    //FORECAST CALL
+    getForecast(response.data.coord);
+
     celsiusTemp = response.data.main.temp;
 
     document.querySelector(
@@ -94,48 +103,6 @@ function citySearch(event) {
   let showMonthNow = document.querySelector("#month-day-year-h6");
   showMonthNow.innerHTML = `<span class="input-city-info">${dateNowMonth} ${dateNowNumber}, ${dateNowYear}</span>`;
 
-  //. DATE INFO INTO FORECAST 1
-  // let showForecast1Date = document.querySelector("#forecast-1-h6");
-  // showForecast1Date.innerHTML = `<span class="input-city-info">${
-  //   dateNow.getDate() + 1
-  // }/${dateNow.getMonth()}</span>`;
-
-  //. DATE INFO INTO FORECAST 2
-  // let showForecast2Date = document.querySelector("#forecast-2-h6");
-  // showForecast2Date.innerHTML = `<span class="input-city-info">${
-  //   dateNow.getDate() + 2
-  // }/${dateNow.getMonth()}</span>`;
-
-  //. DATE INFO INTO FORECAST 3
-  // let showForecast3Date = document.querySelector("#forecast-3-h6");
-  // showForecast3Date.innerHTML = `<span class="input-city-info">${
-  //   dateNow.getDate() + 3
-  // }/${dateNow.getMonth()}</span>`;
-
-  //. DATE INFO INTO FORECAST 4
-  // let showForecast4Date = document.querySelector("#forecast-4-h6");
-  // showForecast4Date.innerHTML = `<span class="input-city-info">${
-  //   dateNow.getDate() + 4
-  // }/${dateNow.getMonth()}</span>`;
-
-  //. DATE INFO INTO FORECAST 5
-  // let showForecast5Date = document.querySelector("#forecast-5-h6");
-  // showForecast5Date.innerHTML = `<span class="input-city-info">${
-  //   dateNow.getDate() + 5
-  // }/${dateNow.getMonth()}</span>`;
-
-  //. DATE INFO INTO FORECAST 6
-  // let showForecast6Date = document.querySelector("#forecast-6-h6");
-  // showForecast6Date.innerHTML = `<span class="input-city-info">${
-  //   dateNow.getDate() + 6
-  // }/${dateNow.getMonth()}</span>`;
-
-  //. DATE INFO INTO FORECAST 7
-  // let showForecast7Date = document.querySelector("#forecast-7-h6");
-  // showForecast7Date.innerHTML = `<span class="input-city-info">${
-  //   dateNow.getDate() + 7
-  // }/${dateNow.getMonth()}</span>`;
-
   //. FUNCTION UNIT F
   function changeF(event) {
     event.preventDefault();
@@ -171,7 +138,16 @@ citySearchFunc.addEventListener("submit", citySearch);
 //
 //
 //2 YOUR LOCATION FUNCTION
+//FORECAST FUNCTION
+function getForecast(coordinates) {
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function displayConditions(response) {
+  //FORECAST CALL
+  getForecast(response.data.coord);
+
   celsiusTemp = response.data.main.temp;
 
   //. YOUR LOCATION WEATHER ICON
@@ -188,7 +164,7 @@ function displayConditions(response) {
   showMonthNow.innerHTML = `<span class="input-city-info">${dateNowMonth} ${dateNowNumber}, ${dateNowYear}</span>`;
 
   //. CITY SEARCH INFO
-  let temp = response.data.main.temp;
+  celsiusTemp = response.data.main.temp;
 
   document.querySelector(
     "#input-city-h2"
@@ -196,7 +172,9 @@ function displayConditions(response) {
 
   document.querySelector(
     "#input-degree-number"
-  ).innerHTML = `<span class="input-city-info">${Math.round(temp)}</span>`;
+  ).innerHTML = `<span class="input-city-info">${Math.round(
+    celsiusTemp
+  )}</span>`;
 
   document.querySelector(
     "#temp-description-h6"
@@ -205,48 +183,6 @@ function displayConditions(response) {
   document.querySelector(
     "#wind-speed-h6"
   ).innerHTML = `<span class="input-city-info">${response.data.wind.speed} km/h`;
-
-  //. DATE INFO INTO FORECAST 1
-  // let showForecast1Date = document.querySelector("#forecast-1-h6");
-  // showForecast1Date.innerHTML = `<span class="input-city-info">${
-  //   dateNow.getDate() + 1
-  // }/${dateNow.getMonth()}</span>`;
-
-  //. DATE INFO INTO FORECAST 2
-  // let showForecast2Date = document.querySelector("#forecast-2-h6");
-  // showForecast2Date.innerHTML = `<span class="input-city-info">${
-  //   dateNow.getDate() + 2
-  // }/${dateNow.getMonth()}</span>`;
-
-  //. DATE INFO INTO FORECAST 3
-  // let showForecast3Date = document.querySelector("#forecast-3-h6");
-  // showForecast3Date.innerHTML = `<span class="input-city-info">${
-  //   dateNow.getDate() + 3
-  // }/${dateNow.getMonth()}</span>`;
-
-  //. DATE INFO INTO FORECAST 4
-  // let showForecast4Date = document.querySelector("#forecast-4-h6");
-  // showForecast4Date.innerHTML = `<span class="input-city-info">${
-  //   dateNow.getDate() + 4
-  // }/${dateNow.getMonth()}</span>`;
-
-  //. DATE INFO INTO FORECAST 5
-  // let showForecast5Date = document.querySelector("#forecast-5-h6");
-  // showForecast5Date.innerHTML = `<span class="input-city-info">${
-  //   dateNow.getDate() + 5
-  // }/${dateNow.getMonth()}</span>`;
-
-  //. DATE INFO INTO FORECAST 6
-  // let showForecast6Date = document.querySelector("#forecast-6-h6");
-  // showForecast6Date.innerHTML = `<span class="input-city-info">${
-  //   dateNow.getDate() + 6
-  // }/${dateNow.getMonth()}</span>`;
-
-  //. DATE INFO INTO FORECAST 7
-  // let showForecast7Date = document.querySelector("#forecast-7-h6");
-  // showForecast7Date.innerHTML = `<span class="input-city-info">${
-  //   dateNow.getDate() + 7
-  // }/${dateNow.getMonth()}</span>`;
 
   //. FUNCTION UNIT F
   function changeF(event) {
@@ -279,7 +215,6 @@ function displayConditions(response) {
 
 //. API CONNECTION YOUR LOCATION
 function searchLocation(position) {
-  console.log(position);
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
   let units = "metric";
@@ -297,43 +232,45 @@ function getCurrentLocation(event) {
 let yourLocation = document.querySelector("#current-location-button");
 yourLocation.addEventListener("click", getCurrentLocation);
 
-//. TEMP INFO INTO FORECAST 1 HIGH/LOW
-// let showForecast1Temp = document.querySelector("#forecast-1-hl");
-// showForecast1Temp.innerHTML = `${Math.round(
-//   response.data.main.temp_min
-// )}/${Math.round(response.data.main.temp_max)}`;
-
-//. TEMP INFO INTO FORECAST 2 HIGH/LOW
-//   let showForecast1Temp = document.querySelector("#forecast-2-hl");
-//   showForecast1Temp.innerHTML = `${Math.round(
-//     response.data.main.temp_min
-//   )}/${Math.round(response.data.main.temp_max)}`;
-// }
-
-//. FORECAST 1 WEATHER ICON
-// document.getElementById("fc-1-icon").src =
-//   "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather07-512.png";
-
-//. FORECAST 2 WEATHER ICON
-// document.getElementById("fc-2-icon").src =
-//   "https://cdn2.iconfinder.com/data/icons/weather-flat-14/64/weather07-512.png";
-
-//. FORECAST 3 WEATHER ICON
-// document.getElementById("fc-3-icon").src =
-//   "https://cdn1.iconfinder.com/data/icons/weather-forecast-meteorology-color-1/128/weather-sunny-showers-512.png";
-
-//. FORECAST 4 WEATHER ICON
-// document.getElementById("fc-4-icon").src =
-//   "https://th.bing.com/th/id/R.6f91bc8f92f34fe50d84f23442265d64?rik=ZRQrntvuFnotmw&riu=http%3a%2f%2fgetdrawings.com%2ffree-icon%2fmostly-sunny-weather-icon-73.png&ehk=wvtR6GA16kKzmVDywyKt58A6wCKPp%2bHpnr9o7PcM9RE%3d&risl=&pid=ImgRaw&r=0";
-
-//. FORECAST 5 WEATHER ICON
-// document.getElementById("fc-5-icon").src =
-//   "https://th.bing.com/th/id/R.6f91bc8f92f34fe50d84f23442265d64?rik=ZRQrntvuFnotmw&riu=http%3a%2f%2fgetdrawings.com%2ffree-icon%2fmostly-sunny-weather-icon-73.png&ehk=wvtR6GA16kKzmVDywyKt58A6wCKPp%2bHpnr9o7PcM9RE%3d&risl=&pid=ImgRaw&r=0";
-
-//. FORECAST 6 WEATHER ICON
-// document.getElementById("fc-6-icon").src =
-//   "https://cdn4.iconfinder.com/data/icons/disasters-flat-colorful/2048/6741_-_Thunderstorm-512.png";
-
-//. FORECAST 7 WEATHER ICON
-// document.getElementById("fc-7-icon").src =
-//   "https://th.bing.com/th/id/R.6f91bc8f92f34fe50d84f23442265d64?rik=ZRQrntvuFnotmw&riu=http%3a%2f%2fgetdrawings.com%2ffree-icon%2fmostly-sunny-weather-icon-73.png&ehk=wvtR6GA16kKzmVDywyKt58A6wCKPp%2bHpnr9o7PcM9RE%3d&risl=&pid=ImgRaw&r=0";
+//3 DISPLAY FORECAST
+function displayForecast(response) {
+  console.log(response.data.daily);
+  let forecastCard = document.querySelector("#container-forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = [
+    "Next Day",
+    "Next Day",
+    "Next Day",
+    "Next Day",
+    "Next Day",
+    "Next Day",
+    "Next Day",
+  ];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-2" id="forecast-card">
+        <div class="card">
+          <div class="container" id="date">
+            <h6 class="date-h6" id="forecast-h6">
+              <span style="font-size: 12px">${day}</span>
+            </h6>
+          </div>
+          <img
+            src="https://anatomised.com/wp-content/uploads/2016/05/spinner-test4.gif"
+            class="icon"
+            id="fc-icon"
+            alt="pending"
+            width="60"
+          />
+          <div class="container" id="high-low">
+            <h6 class="temp-h6">+/-</h6>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastCard.innerHTML = forecastHTML;
+}

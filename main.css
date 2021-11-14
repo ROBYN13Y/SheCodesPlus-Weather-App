@@ -8,8 +8,8 @@ body {
 #weather-app {
   background-color: rgb(255, 255, 255);
   border: 2px solid rgb(6, 120, 214);
-  max-width: 640px;
-  min-width: 639px;
+  max-width: 680px;
+  min-width: 679px;
   padding: 15px;
 }
 
@@ -152,30 +152,20 @@ h2 {
 }
 
 /* BODY FORECAST */
-#forecast-1 {
-  padding: 10px 1px 10px 2px;
-}
-
-#forecast-7 {
-  padding: 10px 2px 10px 1px;
-}
-
-#forecast-2,
-#forecast-3,
-#forecast-4,
-#forecast-5,
-#forecast-6 {
-  padding: 10px 1px;
+#forecast-card {
+  padding: 5px 2px 5px 2px;
+  max-width: 90px;
 }
 
 .icon {
   border: 1px solid rgba(128, 128, 128, 0.685);
-  display: block;
-  margin: auto;
+}
+
+#fc-icon {
+  margin: 0 auto;
 }
 
 .card {
-  border: 1px solid beige;
   transition: padding 0.5s;
 }
 
@@ -188,16 +178,10 @@ h2 {
   padding: 0;
 }
 
-#temp {
-  text-align: center;
-}
-
-.date-h6 {
-  padding: 5px 2px;
-}
-
 .temp-h6 {
-  padding: 5px 2px;
+  text-align: center;
+  margin-bottom: 0;
+  padding-bottom: 5px;
 }
 
 .info {
